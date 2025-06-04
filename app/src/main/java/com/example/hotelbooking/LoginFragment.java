@@ -54,7 +54,8 @@ public class LoginFragment extends Fragment {
                 .addOnCompleteListener(requireActivity(), task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(getContext(), "Вход выполнен", Toast.LENGTH_SHORT).show();
-                        // TODO: переход к основному экрану
+                        NavController navController = Navigation.findNavController(requireView());
+                        navController.navigate(R.id.action_loginFragment_to_homeFragment);
                     } else {
                         Toast.makeText(getContext(), "Ошибка входа: " + task.getException().getMessage(),
                                 Toast.LENGTH_LONG).show();

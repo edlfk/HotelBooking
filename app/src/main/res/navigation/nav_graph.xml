@@ -16,4 +16,15 @@
         android:id="@+id/registerFragment"
         android:name="com.example.hotelbooking.RegisterFragment"
         android:label="Register" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.hotelbooking.HomeFragment"
+        android:label="Главная" />
+
+    <action
+        android:id="@+id/action_loginFragment_to_homeFragment"
+        app:destination="@id/homeFragment"
+        app:popUpTo="@id/loginFragment"
+        app:popUpToInclusive="true" />
+
 </navigation>
