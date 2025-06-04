@@ -9,11 +9,13 @@ import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import com.google.firebase.auth.FirebaseAuth;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 public class LoginFragment extends Fragment {
 
     private EditText emailEditText, passwordEditText;
-    private Button loginButton;
+    private Button loginButton, registerButton;
     private FirebaseAuth auth;
 
     public LoginFragment() {}
@@ -26,11 +28,25 @@ public class LoginFragment extends Fragment {
         emailEditText = view.findViewById(R.id.emailEditText);
         passwordEditText = view.findViewById(R.id.passwordEditText);
         loginButton = view.findViewById(R.id.loginButton);
+        registerButton = view.findViewById(R.id.registerButton);
+
         auth = FirebaseAuth.getInstance();
 
         loginButton.setOnClickListener(v -> attemptLogin());
+        registerButton.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(v);
+            navController.navigate(R.id.action_loginFragment_to_registerFragment);
+        });
 
         return view;
+    }
+
+    private void openRegisterFragment() {
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, new RegisterFragment()) // ваш контейнер
+                .addToBackStack(null)
+                .commit();
     }
 
     private void attemptLogin() {
@@ -53,4 +69,6 @@ public class LoginFragment extends Fragment {
                     }
                 });
     }
+
 }
+
