@@ -41,14 +41,6 @@ public class LoginFragment extends Fragment {
         return view;
     }
 
-    private void openRegisterFragment() {
-        requireActivity().getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_container, new RegisterFragment()) // ваш контейнер
-                .addToBackStack(null)
-                .commit();
-    }
-
     private void attemptLogin() {
         String email = emailEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString();
