@@ -1,13 +1,75 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="24dp"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-    <TextView
-        android:id="@+id/bookingInfo"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Бронирование..."
-        android:textSize="18sp"
-        android:textStyle="bold"/>
-</FrameLayout>
+        android:orientation="vertical">
+
+        <TextView
+            android:text="ФИО:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/editFullName"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Иванов Иван Иванович"
+            android:inputType="textPersonName"/>
+
+        <TextView
+            android:text="Дата заезда:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/editCheckIn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:focusable="false"
+            android:hint="Выберите дату"/>
+
+        <TextView
+            android:text="Дата выезда:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/editCheckOut"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:focusable="false"
+            android:hint="Выберите дату"/>
+
+        <TextView
+            android:text="Способ оплаты:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Spinner
+            android:id="@+id/spinnerPayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/textTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Сумма к оплате: 0₽"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/buttonConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Подтвердить бронирование"/>
+
+    </LinearLayout>
+</ScrollView>

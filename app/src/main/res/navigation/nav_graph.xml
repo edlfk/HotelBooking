@@ -43,6 +43,16 @@
     <fragment
         android:id="@+id/bookingFragment"
         android:name="com.example.hotelbooking.BookingFragment"
-        android:label="Бронирование" />
+        android:label="Бронирование" >
+        <action
+            android:id="@+id/action_bookingFragment_to_confirmedBookingsFragment"
+            app:destination="@id/confirmedBookingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/confirmedBookingsFragment"
+        android:name="com.example.hotelbooking.ConfirmedBookingsFragment"
+        android:label="Мои бронирования" />
+
 
 </navigation>

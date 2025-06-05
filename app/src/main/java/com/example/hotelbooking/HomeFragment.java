@@ -109,15 +109,15 @@ public class HomeFragment extends Fragment {
         allHotels.clear();
         allHotels.add(new Hotel("Hilton Moscow", "Москва",
                 "Пятизвёздочный отель рядом с центром...",
-                R.drawable.hilton, 5, 9.4f, 11500));
+                R.drawable.hilton, 5, 9.4f, 90000));
 
         allHotels.add(new Hotel("Grand Sochi", "Сочи",
                 "Роскошный отель на берегу моря...",
-                R.drawable.sochi, 4, 8.8f, 8200));
+                R.drawable.sochi, 4, 8.8f, 30000));
 
         allHotels.add(new Hotel("Nevsky Hotel", "Санкт-Петербург",
                 "Уютный отель в центре Петербурга...",
-                R.drawable.nevsky, 3, 8.3f, 6200));
+                R.drawable.nevsky, 3, 8.3f, 10000));
 
 
 

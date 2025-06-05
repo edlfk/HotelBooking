@@ -52,7 +52,7 @@ public class HotelDetailFragment extends Fragment {
             description.setText(hotel.description);
             image.setImageResource(hotel.imageResId);
             ratingText.setText("Оценка: " + hotel.rating);
-            priceText.setText("Цена: " + hotel.pricePerNight + " ₽ за ночь");
+            priceText.setText("Цена: " + hotel.pricePerNight + " ₽ ");
             starContainer.removeAllViews();
             for (int i = 0; i < hotel.stars; i++) {
                 ImageView star = new ImageView(requireContext());
