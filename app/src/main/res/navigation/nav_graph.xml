@@ -10,6 +10,7 @@
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+
     </fragment>
 
     <fragment
@@ -19,12 +20,29 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.hotelbooking.HomeFragment"
-        android:label="Главная" />
+        android:label="Главная">
+    <action
+        android:id="@+id/action_homeFragment_to_hotelDetailFragment"
+        app:destination="@id/hotelDetailFragment"/>
+    </fragment>
 
     <action
         android:id="@+id/action_loginFragment_to_homeFragment"
         app:destination="@id/homeFragment"
         app:popUpTo="@id/loginFragment"
         app:popUpToInclusive="true" />
+    <fragment
+        android:id="@+id/hotelDetailFragment"
+        android:name="com.example.hotelbooking.HotelDetailFragment"
+        android:label="Детали отеля" >
+        <action
+            android:id="@+id/action_hotelDetailFragment_to_bookingFragment"
+            app:destination="@id/bookingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.example.hotelbooking.BookingFragment"
+        android:label="Бронирование" />
 
 </navigation>
