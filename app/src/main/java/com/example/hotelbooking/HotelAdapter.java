@@ -40,12 +40,12 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
         holder.name.setText(hotel.name);
         holder.image.setImageResource(hotel.imageResId);
         holder.rating.setText("Оценка: " + hotel.rating);
-        holder.price.setText("от " + hotel.pricePerNight + " ₽/ночь");
+        holder.price.setText("от " + hotel.pricePerNight + " ₽");
 
         holder.stars.removeAllViews();
         for (int i = 0; i < hotel.stars; i++) {
             ImageView star = new ImageView(context);
-            star.setImageResource(R.drawable.ic_star); // ⭐ добавь иконку в drawable
+            star.setImageResource(R.drawable.ic_star);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(40, 40);
             params.setMargins(0, 0, 8, 0);
             star.setLayoutParams(params);
