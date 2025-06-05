@@ -27,6 +27,15 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="12dp"/>
+    
+    <EditText
+        android:id="@+id/fullNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="ФИО"
+        android:inputType="textPersonName"
+        android:marginBottom="12dp"/>
+
 
     <Button
         android:id="@+id/registerButton"

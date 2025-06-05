@@ -11,6 +11,10 @@ import androidx.navigation.Navigation;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ProfileFragment extends Fragment {
 
@@ -19,6 +23,8 @@ public class ProfileFragment extends Fragment {
     private Button buttonLogout, buttonEditName;
 
     private FirebaseAuth auth;
+    private FirebaseFirestore db;
+    private FirebaseUser user;
 
     public ProfileFragment() {}
 
@@ -33,36 +39,52 @@ public class ProfileFragment extends Fragment {
         buttonEditName = view.findViewById(R.id.buttonEditName);
 
         auth = FirebaseAuth.getInstance();
-        FirebaseUser user = auth.getCurrentUser();
+        user = auth.getCurrentUser();
+        db = FirebaseFirestore.getInstance();
 
         if (user != null) {
             textEmail.setText("Email: " + user.getEmail());
-            editFullName.setText(user.getDisplayName() != null ? user.getDisplayName() : "");
+            loadUserProfile();
         }
 
-        buttonEditName.setOnClickListener(v -> {
-            String newName = editFullName.getText().toString().trim();
-            if (!newName.isEmpty()) {
-                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                        .setDisplayName(newName)
-                        .build();
-                user.updateProfile(profileUpdates)
-                        .addOnCompleteListener(task -> {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(getContext(), "Имя обновлено", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(getContext(), "Ошибка обновления", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-            }
-        });
-
+        buttonEditName.setOnClickListener(v -> updateFullName());
         buttonLogout.setOnClickListener(v -> {
             auth.signOut();
-            NavController nav = Navigation.findNavController(v);
-            nav.navigate(R.id.loginFragment);
+            Navigation.findNavController(v).navigate(R.id.loginFragment);
         });
 
         return view;
+    }
+
+    private void loadUserProfile() {
+        db.collection("users").document(user.getUid())
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        String fullName = documentSnapshot.getString("fullName");
+                        editFullName.setText(fullName);
+                    }
+                })
+                .addOnFailureListener(e ->
+                        Toast.makeText(getContext(), "Ошибка загрузки профиля", Toast.LENGTH_SHORT).show());
+    }
+
+    private void updateFullName() {
+        String newName = editFullName.getText().toString().trim();
+        if (newName.isEmpty()) {
+            Toast.makeText(getContext(), "Введите ФИО", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Map<String, Object> updates = new HashMap<>();
+        updates.put("fullName", newName);
+        updates.put("email", user.getEmail());
+
+        db.collection("users").document(user.getUid())
+                .set(updates, SetOptions.merge())
+                .addOnSuccessListener(unused ->
+                        Toast.makeText(getContext(), "Профиль обновлён", Toast.LENGTH_SHORT).show())
+                .addOnFailureListener(e ->
+                        Toast.makeText(getContext(), "Ошибка при обновлении", Toast.LENGTH_SHORT).show());
     }
 }
