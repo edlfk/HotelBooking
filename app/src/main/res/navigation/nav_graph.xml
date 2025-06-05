@@ -16,7 +16,14 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.hotelbooking.RegisterFragment"
-        android:label="Register" />
+        android:label="Регистрация">
+        <action
+            android:id="@+id/action_registerFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/registerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.hotelbooking.HomeFragment"
@@ -52,7 +59,7 @@
     <fragment
         android:id="@+id/confirmedBookingsFragment"
         android:name="com.example.hotelbooking.ConfirmedBookingsFragment"
-        android:label="Мои бронирования" />
+            android:label="Бронирования" />
 
     <fragment
         android:id="@+id/profileFragment"

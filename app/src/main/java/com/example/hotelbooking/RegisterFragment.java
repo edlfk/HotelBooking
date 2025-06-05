@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.*;
 import android.widget.*;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -73,7 +75,9 @@ public class RegisterFragment extends Fragment {
                                     .set(userData)
                                     .addOnSuccessListener(unused -> {
                                         Toast.makeText(getContext(), "Регистрация прошла успешно", Toast.LENGTH_SHORT).show();
-                                        requireActivity().getSupportFragmentManager().popBackStack(); // Назад к логину
+                                        NavController navController = Navigation.findNavController(requireView());
+                                        navController.navigate(R.id.action_registerFragment_to_homeFragment);
+
                                     })
                                     .addOnFailureListener(e ->
                                             Toast.makeText(getContext(), "Ошибка при сохранении профиля", Toast.LENGTH_SHORT).show());
