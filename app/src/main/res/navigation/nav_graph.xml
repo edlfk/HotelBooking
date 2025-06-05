@@ -53,6 +53,11 @@
         android:id="@+id/confirmedBookingsFragment"
         android:name="com.example.hotelbooking.ConfirmedBookingsFragment"
         android:label="Мои бронирования" />
+    
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.hotelbooking.ProfileFragment"
+        android:label="Профиль" />
 
 
 </navigation>
