@@ -1,0 +1,35 @@
+[33mcommit 84afd507ce4e376d939547c59614b9ef9f8c4ad9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: edlfk <listopadovalisa@mail.ru>
+Date:   Thu Jun 5 01:46:08 2025 +0300
+
+    Added HomeFragment
+
+[33mcommit e1987fcee39d55d456622cdd5e1d36af3c7291aa[m
+Author: edlfk <listopadovalisa@mail.ru>
+Date:   Thu Jun 5 01:27:52 2025 +0300
+
+    fixed the problem of overlapping screens on top of each other.
+
+[33mcommit 1263315b13f1abb303b37fdaaadbe94ad4dfca0c[m
+Author: edlfk <listopadovalisa@mail.ru>
+Date:   Thu Jun 5 01:17:00 2025 +0300
+
+    added navigation
+
+[33mcommit a5ed68c3cfd084351f9ad7f84200b526f8da00ac[m
+Author: edlfk <listopadovalisa@mail.ru>
+Date:   Thu Jun 5 00:52:48 2025 +0300
+
+    Added RegisterFragment
+
+[33mcommit 796dc805c4ca3db19e459b2352d333263ecd0468[m
+Author: edlfk <listopadovalisa@mail.ru>
+Date:   Wed Jun 4 14:43:51 2025 +0300
+
+    Подключен FireBase
+
+[33mcommit 46bad083a3a5fe5c6ded2e268480c3c313b7d0cb[m
+Author: edlfk <listopadovalisa@mail.ru>
+Date:   Wed Jun 4 14:29:41 2025 +0300
+
+    Initial commit
